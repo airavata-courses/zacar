@@ -1,7 +1,8 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-
 <head>
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
     <script>
         document.getElementById("addTracking").onclick = function() {
             var form = document.getElementById("myForm");
@@ -26,35 +27,36 @@
             });
             });
     </script>
+</head>
 <body>
     <div class="hero-image">
-        <h2> Zacar </h2>
-        <form name="myForm" id="myForm" onsubmit="return validateForm()">
-            <br />
-            <input type="text" name="tracking_number" placeholder="Tracking ID" pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{30,20}$/" title="Enter Tracking Number" />
-            <input type="button" id="addTracking" value="Add Tracking ID" />
-            <br>
-            <button class="button" type="submit" name="trackingid">Track</button>
-            <br/>
-        </form>
+        <div class="hero-text">
+            <h2> Zacar </h2>
+            <form name="myForm" id="myForm" onsubmit="return validateForm()">
+                <br />
+                <input type="text" name="tracking_number" placeholder="Tracking ID" pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{30,20}$/" title="Enter Tracking Number" />
+                <input type="button" id="addTracking" value="Add Tracking ID" />
+                <br>
+                <button class="button" type="submit" name="trackingid">Track</button>
+                <br/>
+            </form>
+        </div>
+    </div>
 
-<div class='container'>
-    <div class="gallery1">
-        <a target="_blank" href="USPS.png">
-            <img src="USPS.png" alt="Small Image" width="50" height="50">
-        </a>
+    <div class='container'>
+        <table align='center' id='image_table'>
+            <tr>
+                <td></td>
+                <td>Supported Mail Carriers:</td>
+                <td></td>
+            </tr>
+            <tr>
+            <td><img src="static/ups smaller.png" width="100" height="50"></img></td>
+            <td><img src="static/fedex.png" width="200" height="100"></img></td>
+            <td><img src="static/USPS.png" width="100" height="50"></img></td>
+            </tr>
+        </table>
     </div>
-    <div class="gallery2">
-        <a target="_blank" href="fedex.png">
-            <img src="fedex.png" alt="Small Image" width="600" height="400">
-        </a>
-    </div>
-    <div class="gallery3">
-        <a target="_blank" href="ups smaller.png">
-            <img src="ups smaller.png" alt="Small Image" width="600" height="400">
-        </a>
-    </div>
-</div>
-
 </body>
+
 </html>

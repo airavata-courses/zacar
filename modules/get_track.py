@@ -15,9 +15,9 @@ def get_tracking_info(tracking_number):
         if valid_tracking:
             break
         else:
-            tracking.append(shippo.Track.get_status(carrier, tracking_number))
+            tracking = shippo.Track.get_status(carrier, tracking_number)
             if tracking['transaction'] == None:
                 pass
             else:
-                valid_tracking = True
-    return(tracking)
+                return(tracking)
+    return None
