@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script>
+        document.getElementById("addTracking").onclick = function() {
+            var form = document.getElementById("myForm");
+            var input = document.createElement("input");
+            input.type = "text";
+            input.placeholder = "Tracking ID"
+
+            var br = document.createElement("br");
+            form.appendChild(input);
+            form.appendChild(br);
+        }
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+            $(function() {
+            $('addTracking').bind('click', function() {
+                $.getJSON('/tracked',
+                    function(data) {
+                //do nothing
+                });
+                return false;
+            });
+            });
+    </script>
+<body>
+    <div class="hero-image">
+        <h2> Zacar </h2>
+        <form name="myForm" id="myForm" onsubmit="return validateForm()">
+            <br />
+            <input type="text" name="tracking_number" placeholder="Tracking ID" pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{30,20}$/" title="Enter Tracking Number" />
+            <input type="button" id="addTracking" value="Add Tracking ID" />
+            <br>
+            <button class="button" type="submit" name="trackingid">Track</button>
+            <br/>
+        </form>
+
+<div class='container'>
+    <div class="gallery1">
+        <a target="_blank" href="USPS.png">
+            <img src="USPS.png" alt="Small Image" width="50" height="50">
+        </a>
+    </div>
+    <div class="gallery2">
+        <a target="_blank" href="fedex.png">
+            <img src="fedex.png" alt="Small Image" width="600" height="400">
+        </a>
+    </div>
+    <div class="gallery3">
+        <a target="_blank" href="ups smaller.png">
+            <img src="ups smaller.png" alt="Small Image" width="600" height="400">
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

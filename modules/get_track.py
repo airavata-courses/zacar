@@ -10,15 +10,14 @@ def config():
 def get_tracking_info(tracking_number):
     carriers_supported = ['fedex', 'ups', 'usps']
     valid_tracking = False
+    tracking = []
     for carrier in carriers_supported:
-        tracking = shippo.Track.get_status(carrier, tracking_number)
-        if tracking['transaction'] == None:
-            pass
-        else:
-            print(tracking)
-            valid_tracking = True
+        if valid_tracking:
             break
-    if valid_tracking:
-        pass
-    else:
-        print("Invalid Tracking Number")
+        else:
+            tracking.append(shippo.Track.get_status(carrier, tracking_number))
+            if tracking['transaction'] == None:
+                pass
+            else:
+                valid_tracking = True
+    return(tracking)
