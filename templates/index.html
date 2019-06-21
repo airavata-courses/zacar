@@ -15,29 +15,17 @@
             form.appendChild(br);
         }
     </script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type=text/javascript>
-            $(function() {
-            $('addTracking').bind('click', function() {
-                $.getJSON('/tracked',
-                    function(data) {
-                //do nothing
-                });
-                return false;
-            });
-            });
-    </script>
 </head>
 <body>
     <div class="hero-image">
         <div class="hero-text">
             <h2> Zacar </h2>
-            <form name="myForm" id="myForm" onsubmit="return validateForm()">
+            <form name="myForm" id="myForm" onsubmit="return validateForm()" method="POST">
                 <br />
-                <input type="text" name="tracking_number" placeholder="Tracking ID" pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{30,20}$/" title="Enter Tracking Number" />
-                <input type="button" id="addTracking" value="Add Tracking ID" />
+                <p>Seperate each tracking id with ,</p>
+                <textarea type="text" name="tracking_number" placeholder="Tracking ID" pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{30,20}$/" title="Seperate By Commas" ></textarea>
                 <br>
-                <button class="button" type="submit" name="trackingid">Track</button>
+                <button class="button" type="submit" id="trackingid">Track</button>
                 <br/>
             </form>
         </div>

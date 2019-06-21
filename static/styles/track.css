@@ -122,11 +122,16 @@ div.gallery3 img {
 .hero-text {
     text-align: center;
     position: absolute;
-    top: 50%;
+    top: 26%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
   }
+
+
+table.info {
+    color: black;
+}
 
 #image_table {
     color: black;
@@ -145,14 +150,3 @@ div.gallery3 img {
     box-shadow: 0 9px #999;
     margin: 10px;
 }
-
-textarea {
-    width: 200px;
-    height: 70px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-  }

@@ -1,14 +1,49 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
-   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
-   <body>
-      <table border = 1>
-         {% for key, value in result.items() %}
-            <tr>
-               <th> {{ key }} </th>
-               <td> {{ value }} </td>
-            </tr>
+<head>
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/track.css') }}">
+   <script>
+      jQuery(document).ready(function(){
+         jQuery(this).scrollTop(0);
+      });
+   </script>
+</head>
+<body>
+   <div class="hero-image">
+      <div class="hero-text">
+         <h2> Zacar </h2>
+      </div>
+   </div>
+
+   <div class='container'>
+      <h4 style="color:black;">Package Tracking Information:</h4>
+      <table class='info' align='center'>
+         {% for package in result %}
+            {% for info in package %}
+               <tr>
+                  <td> {{ info }} </td>
+               </tr>
+            {% endfor %}
          {% endfor %}
       </table>
-   </body>
+   </div>
+
+   <div class='container'>
+   <hr>
+   <table align='center' id='image_table'>
+      <tr>
+            <td></td>
+            <td>Supported Mail Carriers:</td>
+            <td></td>
+      </tr>
+      <tr>
+      <td><img src="static/ups smaller.png" width="100" height="50"></img></td>
+      <td><img src="static/fedex.png" width="200" height="100"></img></td>
+      <td><img src="static/USPS.png" width="100" height="50"></img></td>
+      </tr>
+   </table>
+   </div>
+</body>
+
 </html>
+

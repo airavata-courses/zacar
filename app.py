@@ -6,13 +6,21 @@ app = Flask(__name__, template_folder='templates')
 def index():
     return render_template('index.html', title='Home')
  
-@app.route("/tracked", methods = ['POST', 'GET'])
+@app.route("/", methods = ['POST'])
 def tracked():
-    if request.method == 'POST':
+    try:
+        result = []
         get_track.config()
-        t_id = request.form['tracking_number']
-        result = get_track.get_tracking_info(t_id)
-    return render_template("Tracking.html", result=result)
+        t_id = str(request.form['tracking_number'])
+        t_id = t_id.split(',')
+        for tracking_id in t_id:
+            result.append(get_track.get_tracking_info(tracking_id))
+        if result is None:
+            return "ERROR 404"
+        else:
+            return render_template("Tracking.html", result=result)
+    except:
+        return "ERROR"
  
 if __name__ == '__main__':
     app.run(debug=True)
