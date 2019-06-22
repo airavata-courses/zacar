@@ -1,7 +1,5 @@
 from flask import Flask, request, render_template
-import sys
-sys.path.append("..")
-import modules.get_track
+from modules import get_track
 app = Flask(__name__, template_folder='templates')
  
 @app.route("/")
