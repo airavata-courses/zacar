@@ -1,5 +1,10 @@
 from flask import Flask, request, render_template
 from modules import get_track
+import os, sys
+currDir = os.path.dirname(os.path.realpath(__file__))
+rootDir = os.path.abspath(os.path.join(currDir, '..'))
+if rootDir not in sys.path: # add parent dir to paths
+    sys.path.append(rootDir)
 app = Flask(__name__, template_folder='templates')
  
 @app.route("/")
