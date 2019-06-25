@@ -19,8 +19,8 @@ def tracked():
             return "ERROR 404"
         else:
             return render_template("Tracking.html", result=result)
-    except:
-        return "ERROR"
+    except Exception as e:
+        return "Error"
  
 if __name__ == '__main__':
     app.run(debug=True)

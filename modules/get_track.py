@@ -17,6 +17,7 @@ def get_tracking_info(tracking_number):
         else:
             tracking = shippo.Track.get_status(carrier, tracking_number)
             if tracking['address_to'] != None:
+                info.append('------------------------------------------------------')
                 status = tracking['tracking_status']
                 location = status['location']
                 info.append(status['status'])
@@ -25,6 +26,7 @@ def get_tracking_info(tracking_number):
                 info.append(location['city'])
                 info.append(location['state'])
                 info.append(location['zip'])
+                info.append('------------------------------------------------------')
                 return(info)
             else:
                 pass
