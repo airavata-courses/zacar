@@ -21,7 +21,7 @@ def tracked():
         else:
             return render_template("Tracking.html", result=result)
     except Exception as e:
-        return "Error"
+        return "Error"+str(e)
  
 if __name__ == '__main__':
     app.run(debug=True)
