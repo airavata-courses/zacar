@@ -11,7 +11,7 @@ def tracked():
     try:
         result = []
         get_track.config()
-        t_id = str(request.form['tracking_number'])
+        t_id = str(request.form['tracking_number']).replace('\n', ' ').replace(' ', '')
         t_id = t_id.split(',')
         for tracking_id in t_id:
             result.append(get_track.get_tracking_info(tracking_id))
